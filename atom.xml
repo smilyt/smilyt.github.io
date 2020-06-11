@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://smilyt.github.io</id>
+    <title>smilyt_的博客</title>
+    <updated>2020-06-11T06:25:07.515Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://smilyt.github.io"/>
+    <link rel="self" href="https://smilyt.github.io/atom.xml"/>
+    <subtitle>博客，记录蒟蒻生活</subtitle>
+    <logo>https://smilyt.github.io/images/avatar.png</logo>
+    <icon>https://smilyt.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2020, smilyt_的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[记2020/06/07刷题（力扣周赛）]]></title>
+        <id>https://smilyt.github.io/post/ji-20200607-shua-ti-li-kou-zhou-sai/</id>
+        <link href="https://smilyt.github.io/post/ji-20200607-shua-ti-li-kou-zhou-sai/">
+        </link>
+        <updated>2020-06-07T03:16:14.000Z</updated>
+        <content type="html"><![CDATA[<p>这是192场周赛<br>
+题目很水，但是交的时候不小心错了一次😭</p>
+<p><strong>1. 重新排列数组</strong>😄<br>
+两个数组合并成一个，太容易了</p>
+<p><strong>2. 数组中的 k 个最强值</strong>😄<br>
+这个就是用lambda表达式排序的题，排两次就可以</p>
+<p><strong>3. 设计浏览器历史记录</strong>😄<br>
+这是一个设计题，用一个记录url数量，一个记录当前位置，在一个数组里移动就可以了</p>
+<p><strong>4. 给房子涂色 III</strong>😄<br>
+这是一个dp题，我准备写个题解</p>
+<h1 id="t4题解">t4题解</h1>
+<h2 id="题意">题意</h2>
+<p>给一排房子，涂颜色，最后形成target个社区（相邻房子颜色相同视为一个社区）</p>
+<h2 id="状态以及状态转移方程">状态以及状态转移方程</h2>
+<p>对于一道dp题来说，很显然，我们要找到它的状态转移方程，怎么找到状态转移方程呢?<br>
+大佬当然是直接一眼看出来，不过像我这样的蒟蒻就要一点点分析了。</p>
+<h3 id="寻找状态">寻找状态</h3>
+<p>个人认为，假如想要找到状态转移方程，首先要找到的是状态。<br>
+那么本题有几个状态呢，我感觉不难找出，一共有三个：分别是房子所在位置，房子涂的颜色，房子形成的社区<br>
+那么dp[i][j][k]就代表第i个房子涂第j个颜色，前i个房子形成了k个社区。<br>
+好的，通过找出状态我们顺便定义了，三维dp数组的意义</p>
+<h3 id="分析状态">分析状态</h3>
+<p>接下来自然要找到状态转移方程，先分析状态。<br>
+寻找状态转移方程的大致思路是把每一维都由初始状态往上加，直到终止状态。<br>
+说到这里，我们先考虑初始状态。<br>
+分析这三个状态：<br>
+对于i来说，初始值自然是0，终止值是m-1，表明从第0个房子到第m-1个房子这m个房子<br>
+对于j来说，它的值是有houses[i]决定的，假如houses[i]为0，那么j可以随意变动，假如houses[i]不为0，那么j有唯一值<br>
+对于k来说，初始值是1，终止值是target，表明从1个社区到target个社区</p>
+<p>分析状态之后，我们发现只需要把i从0到m-1转移，k从1到target转移即可，那么j呢？<br>
+j只是一个工具变量，最后我们可以访问dp[m-1][j][target] (1&lt;=j&lt;=n)这n个值，寻找最小值作为答案，所以j没有初始也没有终止，我们需要计算出所有的j（实际上j的存在就是为k的转移服务的，不明白的继续往下看）</p>
+<h3 id="寻找初始值">寻找初始值</h3>
+<p><strong>inf=100000000</strong> 首先把dp数组都初始化为inf，因为有些值不可以出现，这样可以排除不能出现的值和答案竞争</p>
+<p>根据houses[0]是否为0来初始化，dp[0][j][1] 因为最初肯定在0号房子只有一个社区，j是不定的，所以初始化这些</p>
+<pre><code>if(houses[0]!=0)
+    dp[0][houses[0]][1]=0  
+房子已经有颜色，所以不能涂色而且花费为0
+
+if(houses[0]==0)
+    for(int j=1;j&lt;=n;j++) dp[0][j][1]=cost[i][j-1]
+房子无颜色，所以可以涂任意颜色
+</code></pre>
+<h3 id="开始转移">开始转移</h3>
+<p>i的转移就是i的值是从i-1的值得到的<br>
+k的值是由当前房子颜色和前一个房子颜色作比较得到的：<br>
+1.i号房子颜色和i-1号房子颜色相同，i,k的值从i-1,k得到<br>
+2.i号房子颜色和i-1号房子颜色不同，i,k的值从i-1,k-1得到<br>
+把这两个写成状态转移方程(下面内容不是正式代码，仅供理解)：假设i号房子颜色为j1，i-1号房子颜色为j2</p>
+<pre><code>1.j1==j2
+dp[i][j1][k]&lt;---dp[i-1][j2][k]
+2.j1!=j2
+dp[i][j1][k]&lt;---dp[i-1][j2][k-1]
+</code></pre>
+<p>现在唯一的问题就是处理颜色了，这不是很简单嘛，直接列出所有颜色就可以了，只有20种颜色，不可能超时的。<br>
+有一点要注意的就是houses[i]的值：<br>
+1.假如不为0，那么j1只有唯一值，只需要穷举j2，而且不加cost<br>
+2.假如为0，那么穷举j1和j2，加cost<br>
+感觉会了的同学已经可以去写代码了，感觉不会的同学可以再看一下前面的理解理解去写代码。</p>
+<h3 id="提前总结">提前总结</h3>
+<p>做一个小总结，总结以下大致步骤，方便大家先自己写代码：<br>
+1.用inf初始化所有dp值<br>
+2.初始化dp[0][j][1]<br>
+3.转移：dp[0][j][1]-&gt;dp[m-1][j][target]，对于每个i，考虑houses[i]是否为0<br>
+4.从所有dp[m-1][j][target]找到最小值<br>
+5.处理答案不存在的情况</p>
+<p>最后附上我惨不忍睹的代码</p>
+<h2 id="代码">代码</h2>
+<pre><code class="language-cpp">#define inf 1e8
+class Solution {
+public:
+    int minCost(vector&lt;int&gt;&amp; houses, vector&lt;vector&lt;int&gt;&gt;&amp; cost, int m, int n, int target) {
+        //inf排除不可能的值
+        vector&lt;vector&lt;vector&lt;int&gt;&gt;&gt; dp(m,vector&lt;vector&lt;int&gt;&gt;(n+1,vector&lt;int&gt;(target+1,inf)));
+        //初始化
+        if(houses[0]!=0) dp[0][houses[0]][1]=0;
+        else{
+            for(int i=1;i&lt;=n;i++){
+                dp[0][i][1]=cost[0][i-1];
+            }
+        }
+        
+        //dp状态转移
+        for(int i=1;i&lt;m;i++){
+            if(houses[i]==0){//为0，穷举j1和j2
+                for(int j1=1;j1&lt;=n;j1++){
+                    for(int k=1;k&lt;=target;k++){
+                        for(int j2=1;j2&lt;=n;j2++){
+                            //在穷举j1和j2中也会有j1==j2，注意哟
+                            if(j1==j2) dp[i][j1][k]=min(dp[i][j1][k],dp[i-1][j2][k]+cost[i][j1-1]);
+                            else dp[i][j1][k]=min(dp[i][j1][k],dp[i-1][j2][k-1]+cost[i][j1-1]);
+                        }
+                    }
+                }
+            }else{//不为0，穷举j2
+                for(int k=1;k&lt;=target;k++){
+                    for(int j2=1;j2&lt;=n;j2++){
+                        int j1=houses[i];
+                        if(j1==j2) dp[i][j1][k]=min(dp[i][j1][k],dp[i-1][j2][k]);
+                        else dp[i][j1][k]=min(dp[i][j1][k],dp[i-1][j2][k-1]);
+                    }
+                }
+            }
+        }
+        //遍历以下所有的j，寻找答案
+        int ans=1e8;
+        for(int i=1;i&lt;=n;i++) ans=min(ans,dp[m-1][i][target]);
+        if(ans==1e8) ans=-1; //注意处理一下不存在答案，我就忘了，wa一次，嘤嘤嘤了
+        return ans;
+    }
+};
+</code></pre>
+<h2 id="总结">总结</h2>
+<p>不知道总结点什么......<br>
+分析一下复杂度吧：<br>
+假设房子有m栋，颜色有n个，target为t<br>
+要考虑最大的可能，每一栋穷举了两次颜色，而且求出了所有的target值，所以:<br>
+时间复杂度为O(mt*n^2)<br>
+空间复杂度为O(mtn)<br>
+希望能够帮到大家<br>
+求个赞</p>
+<p>有问题的评论区见<br>
+散会</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[记2020/06/06日cf刷题]]></title>
+        <id>https://smilyt.github.io/post/ji-20200606-ri-cf-shua-ti/</id>
+        <link href="https://smilyt.github.io/post/ji-20200606-ri-cf-shua-ti/">
+        </link>
+        <updated>2020-06-06T03:57:39.000Z</updated>
+        <content type="html"><![CDATA[<p>今天做一个div3<br>
+Codeforces Round #605 (Div. 3)</p>
+<p><strong>A. Three Friends</strong>😄 900<br>
+直接暴力穷举所有可能即可</p>
+<p><strong>B. Snow Walking Robot</strong>😄 1200<br>
+这是一个构造题，找规律构造即可</p>
+<p><strong>C. Yet Another Broken Keyboard</strong>😄 1200<br>
+双指针，窗口滑动，模板题</p>
+<p><strong>D. Remove One Element</strong>😭 1500<br>
+一道很常规的dp题，但是手笨头晕打错了好几次</p>
+<p><strong>E. Nearest Opposite Parity</strong>😭 1900<br>
+猛一看是dfs题，写了半天不对。<br>
+再一想<strong>最短路还是用bfs香</strong>，就相当于先求所有点到值为奇的最短距离，再求到值为偶的最短距离。<br>
+还是太年轻了</p>
+<p>在bfs时可能两个点不是双向的，而是单向的，考虑好从哪个点到哪个点非常重要</p>
+]]></content>
+    </entry>
+</feed>

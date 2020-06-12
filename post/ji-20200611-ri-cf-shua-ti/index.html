@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>文章归档 | smilyt_的博客</title>
+<title>记2020/06/11日cf刷题 | smilyt_的博客</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,7 +18,13 @@
 
 
 
-    <meta name="description" content="博客，记录蒟蒻生活">
+    <meta name="description" content="好久不刷题，最近课程繁重，人比较懒
+F. Two Bracket Sequences😭 2200
+还是上次剩的F题开，2200分dp，不会直接看题解学习了。。
+体会与总结：
+F题是一道字符串dp，然后根据结果还原路径的题。
+对于两个字符串..." />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div id="app" class="main">
@@ -88,50 +94,41 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          
+          <div class="post-detail">
+            <h2 class="post-title">记2020/06/11日cf刷题</h2>
+            <div class="post-date">2020-06-11</div>
+            
+            <div class="post-content" v-pre>
+              <p>好久不刷题，最近课程繁重，人比较懒</p>
+<p><strong>F. Two Bracket Sequences</strong>😭 2200<br>
+还是上次剩的F题开，2200分dp，不会直接看题解学习了。。</p>
+<p>体会与总结：<br>
+F题是一道字符串dp，然后根据结果还原路径的题。<br>
+对于两个字符串dp，好像所有的都是·二维以上的，因为两维i，j是用来记录两个字符串下标的。<br>
+其次，对于是否有其他的维度，就考虑别的状态，本题第三个状态是剩余的左括号数。</p>
+<p>这种题不能直接在dp里放字符串，因为会炸空间，所以只能放长度，最小长度，然后从后往前还原。</p>
+<p>分别讨论在i，j这个地方是放'('还是')'：<br>
+假如放'('，那么i处为'('，j处为'('或者两者都为'('，和在i-1，j-1处有k-1个左括号相同。<br>
+右括号也是一样的。</p>
+<p>之后再记录之前的状态，就可以倒推回去。<br>
+如果有办法不记录之前的状态就可以推回去，那也可以不记录，不过本题我未发现这样的办法。</p>
 
-          <h2 class="archives-title">文章归档</h2>
-          <div class="archives-container">
+            </div>
             
-              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2020</h2>
-              
-                
-                  <article class="post">
-                    <a href="https://smilyt.github.io/post/ji-20200611-ri-cf-shua-ti/">
-                      <h2 class="post-title">
-                        记2020/06/11日cf刷题
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://smilyt.github.io/post/ji-20200607-shua-ti-li-kou-zhou-sai/">
-                      <h2 class="post-title">
-                        记2020/06/07刷题（力扣周赛）
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://smilyt.github.io/post/ji-20200606-ri-cf-shua-ti/">
-                      <h2 class="post-title">
-                        记2020/06/06日cf刷题
-                      </h2>
-                    </a>
-                  </article>
-                
-              
             
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://smilyt.github.io/post/ji-20200607-shua-ti-li-kou-zhou-sai/">
+                  <h3 class="post-title">
+                    记2020/06/07刷题（力扣周赛）
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
           </div>
-
-          <div class="pagination-container">
-  
-  
-</div>
 
         </div>
       </div>

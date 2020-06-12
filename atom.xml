@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://smilyt.github.io</id>
     <title>smilyt_的博客</title>
-    <updated>2020-06-11T06:25:07.515Z</updated>
+    <updated>2020-06-12T00:36:00.516Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://smilyt.github.io"/>
     <link rel="self" href="https://smilyt.github.io/atom.xml"/>
@@ -10,6 +10,27 @@
     <logo>https://smilyt.github.io/images/avatar.png</logo>
     <icon>https://smilyt.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, smilyt_的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[记2020/06/11日cf刷题]]></title>
+        <id>https://smilyt.github.io/post/ji-20200611-ri-cf-shua-ti/</id>
+        <link href="https://smilyt.github.io/post/ji-20200611-ri-cf-shua-ti/">
+        </link>
+        <updated>2020-06-11T05:19:12.000Z</updated>
+        <content type="html"><![CDATA[<p>好久不刷题，最近课程繁重，人比较懒</p>
+<p><strong>F. Two Bracket Sequences</strong>😭 2200<br>
+还是上次剩的F题开，2200分dp，不会直接看题解学习了。。</p>
+<p>体会与总结：<br>
+F题是一道字符串dp，然后根据结果还原路径的题。<br>
+对于两个字符串dp，好像所有的都是·二维以上的，因为两维i，j是用来记录两个字符串下标的。<br>
+其次，对于是否有其他的维度，就考虑别的状态，本题第三个状态是剩余的左括号数。</p>
+<p>这种题不能直接在dp里放字符串，因为会炸空间，所以只能放长度，最小长度，然后从后往前还原。</p>
+<p>分别讨论在i，j这个地方是放'('还是')'：<br>
+假如放'('，那么i处为'('，j处为'('或者两者都为'('，和在i-1，j-1处有k-1个左括号相同。<br>
+右括号也是一样的。</p>
+<p>之后再记录之前的状态，就可以倒推回去。<br>
+如果有办法不记录之前的状态就可以推回去，那也可以不记录，不过本题我未发现这样的办法。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[记2020/06/07刷题（力扣周赛）]]></title>
         <id>https://smilyt.github.io/post/ji-20200607-shua-ti-li-kou-zhou-sai/</id>

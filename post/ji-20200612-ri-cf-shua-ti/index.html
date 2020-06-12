@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>记2020/06/12日cf刷题 | smilyt_的博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://smilyt.github.io/favicon.ico?v=1591942529635">
+<link rel="stylesheet" href="https://smilyt.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="今天来补昨天的呢div2.
+Educational Codeforces Round 89 (Rated for Div. 2)
+A. Shovels and Swords😄
+本题为一道简单的数学题，公式一推就可以秒杀。
+B. Shuff..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://smilyt.github.io">
+        <img src="https://smilyt.github.io/images/avatar.png?v=1591942529635" class="site-logo">
+        <h1 class="site-title">smilyt_的博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      博客，记录蒟蒻生活
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://smilyt.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">记2020/06/12日cf刷题</h2>
+            <div class="post-date">2020-06-12</div>
+            
+            <div class="post-content" v-pre>
+              <p>今天来补昨天的呢div2.<br>
+Educational Codeforces Round 89 (Rated for Div. 2)</p>
+<p><strong>A. Shovels and Swords</strong>😄<br>
+本题为一道简单的数学题，公式一推就可以秒杀。</p>
+<p><strong>B. Shuffle</strong>😄<br>
+本题为双指针，记录区间端点并不断更新。</p>
+<p><strong>C. Palindromic Paths</strong>😄<br>
+本题利用贪心思想，总有两条对角线是对应的，该对角线所有的值都应该相同。</p>
+<p><strong>D. Two Divisors</strong>😭<br>
+本题为数论题，数论蒟蒻哭出声来。直接寻求大佬的帮助。</p>
+<p>是这样的，首先使用欧拉筛，以前学习过欧拉筛，不过还要再学习一次。<br>
+欧拉筛的复杂度是O(n)，原理是筛去每个数只使用他的最小因数。</p>
+<pre><code>//欧拉筛代码，直接背板子
+int m,prime[10005],vis[10005];
+int init(){
+    m=0;
+    for(int i=2;i&lt;10005;i++){
+	    if(!vis[i]){
+		    ++m;
+		    prime[m]=i;
+	    }
+	
+	    for(int j=1;j&lt;=m &amp;&amp; i*prime[j]&lt;10005;j++){
+		    vis[i*prime[j]]=1;
+		    if(i%prime[j]==0) break;
+	    }
+    }
+}
+</code></pre>
+<p>然后进行质因数的分解，假设要分解a[i]：</p>
+<pre><code>//分解质因数
+void init2(){
+    for(int j=1;j&lt;=m;j++){
+	    int pj=prime[j];
+	    if(pj*pj&gt;a[i]) break;
+	    if(a[i]%pj==0){
+		    cnt++;
+		    p[cnt]=pj;
+		    c[cnt]=0;
+		    while(a[i]%pj==0){
+			    a[i]/=pj;
+			    c[cnt]++;
+		    }
+	    }
+    }
+}
+</code></pre>
+<p>同时也可以在筛的时候分解质因数：</p>
+<pre><code>int primes[5000000];
+int prime_n = 0;
+int minPrime[10000010];
+
+void init() {
+    primes[prime_n++] = 2;
+    minPrime[2] = 2;
+    for (int i = 3;i &lt;= 10000000;i++) {
+            if (minPrime[i] == 0) {
+                    minPrime[i] = i;
+                    primes[prime_n++] = i;
+            }
+
+            for (int j = 0;j &lt; prime_n &amp;&amp; primes[j] &lt; minPrime[i] &amp;&amp; i * primes[j] &lt;= 10000000;j++) {
+                    minPrime[i * primes[j]] = primes[j];
+            }
+    }
+}
+</code></pre>
+<p>然后考虑数论问题：如何找到a[i]中两个因数使它们的和相加不是a[i]的因子？<br>
+首先考虑a[i]的一个因子d:<br>
+必定存在d1有d|d1<br>
+因为d|a[i]<br>
+所以只需要找到d2使得d不能整除d2，那么d1+d2就肯定不可以整除a[i]<br>
+所以找到一个质因数即可，用上面的筛筛质数的同时也找到了质因子，可以解此题！</p>
+<p><strong>E. Two Arrays</strong>😄<br>
+可以以b中元素为分割点把a中元素分隔开，假如出现a中有多个相同b中元素，就取下标最大的。<br>
+因为b为递增的，取下标小的没有意义。<br>
+而每两个b中元素之间的种数就是两者之间的距离。假如两者中间存在比它们都小的元素答案就是0.<br>
+分析到最后，实际上就是从最右边向最左边求最小值。<br>
+很简单</p>
+<p>剩下两题不会了，不补了</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://smilyt.github.io/post/ji-20200611-ri-cf-shua-ti/">
+                  <h3 class="post-title">
+                    记2020/06/11日cf刷题
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

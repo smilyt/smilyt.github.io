@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://smilyt.github.io</id>
     <title>smilyt_的博客</title>
-    <updated>2020-06-12T00:36:00.516Z</updated>
+    <updated>2020-06-12T06:15:32.431Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://smilyt.github.io"/>
     <link rel="self" href="https://smilyt.github.io/atom.xml"/>
@@ -10,6 +10,94 @@
     <logo>https://smilyt.github.io/images/avatar.png</logo>
     <icon>https://smilyt.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, smilyt_的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[记2020/06/12日cf刷题]]></title>
+        <id>https://smilyt.github.io/post/ji-20200612-ri-cf-shua-ti/</id>
+        <link href="https://smilyt.github.io/post/ji-20200612-ri-cf-shua-ti/">
+        </link>
+        <updated>2020-06-12T00:36:09.000Z</updated>
+        <content type="html"><![CDATA[<p>今天来补昨天的呢div2.<br>
+Educational Codeforces Round 89 (Rated for Div. 2)</p>
+<p><strong>A. Shovels and Swords</strong>😄<br>
+本题为一道简单的数学题，公式一推就可以秒杀。</p>
+<p><strong>B. Shuffle</strong>😄<br>
+本题为双指针，记录区间端点并不断更新。</p>
+<p><strong>C. Palindromic Paths</strong>😄<br>
+本题利用贪心思想，总有两条对角线是对应的，该对角线所有的值都应该相同。</p>
+<p><strong>D. Two Divisors</strong>😭<br>
+本题为数论题，数论蒟蒻哭出声来。直接寻求大佬的帮助。</p>
+<p>是这样的，首先使用欧拉筛，以前学习过欧拉筛，不过还要再学习一次。<br>
+欧拉筛的复杂度是O(n)，原理是筛去每个数只使用他的最小因数。</p>
+<pre><code>//欧拉筛代码，直接背板子
+int m,prime[10005],vis[10005];
+int init(){
+    m=0;
+    for(int i=2;i&lt;10005;i++){
+	    if(!vis[i]){
+		    ++m;
+		    prime[m]=i;
+	    }
+	
+	    for(int j=1;j&lt;=m &amp;&amp; i*prime[j]&lt;10005;j++){
+		    vis[i*prime[j]]=1;
+		    if(i%prime[j]==0) break;
+	    }
+    }
+}
+</code></pre>
+<p>然后进行质因数的分解，假设要分解a[i]：</p>
+<pre><code>//分解质因数
+void init2(){
+    for(int j=1;j&lt;=m;j++){
+	    int pj=prime[j];
+	    if(pj*pj&gt;a[i]) break;
+	    if(a[i]%pj==0){
+		    cnt++;
+		    p[cnt]=pj;
+		    c[cnt]=0;
+		    while(a[i]%pj==0){
+			    a[i]/=pj;
+			    c[cnt]++;
+		    }
+	    }
+    }
+}
+</code></pre>
+<p>同时也可以在筛的时候分解质因数：</p>
+<pre><code>int primes[5000000];
+int prime_n = 0;
+int minPrime[10000010];
+
+void init() {
+    primes[prime_n++] = 2;
+    minPrime[2] = 2;
+    for (int i = 3;i &lt;= 10000000;i++) {
+            if (minPrime[i] == 0) {
+                    minPrime[i] = i;
+                    primes[prime_n++] = i;
+            }
+
+            for (int j = 0;j &lt; prime_n &amp;&amp; primes[j] &lt; minPrime[i] &amp;&amp; i * primes[j] &lt;= 10000000;j++) {
+                    minPrime[i * primes[j]] = primes[j];
+            }
+    }
+}
+</code></pre>
+<p>然后考虑数论问题：如何找到a[i]中两个因数使它们的和相加不是a[i]的因子？<br>
+首先考虑a[i]的一个因子d:<br>
+必定存在d1有d|d1<br>
+因为d|a[i]<br>
+所以只需要找到d2使得d不能整除d2，那么d1+d2就肯定不可以整除a[i]<br>
+所以找到一个质因数即可，用上面的筛筛质数的同时也找到了质因子，可以解此题！</p>
+<p><strong>E. Two Arrays</strong>😄<br>
+可以以b中元素为分割点把a中元素分隔开，假如出现a中有多个相同b中元素，就取下标最大的。<br>
+因为b为递增的，取下标小的没有意义。<br>
+而每两个b中元素之间的种数就是两者之间的距离。假如两者中间存在比它们都小的元素答案就是0.<br>
+分析到最后，实际上就是从最右边向最左边求最小值。<br>
+很简单</p>
+<p>剩下两题不会了，不补了</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[记2020/06/11日cf刷题]]></title>
         <id>https://smilyt.github.io/post/ji-20200611-ri-cf-shua-ti/</id>

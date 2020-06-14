@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://smilyt.github.io</id>
     <title>smilyt_的博客</title>
-    <updated>2020-06-14T12:22:24.139Z</updated>
+    <updated>2020-06-14T13:36:20.515Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://smilyt.github.io"/>
     <link rel="self" href="https://smilyt.github.io/atom.xml"/>
@@ -16,13 +16,18 @@
         <link href="https://smilyt.github.io/post/ji-20200613-shua-ti-li-kou-shuang-zhou-sai/">
         </link>
         <updated>2020-06-13T15:52:06.000Z</updated>
-        <content type="html"><![CDATA[<p>这次双周赛我不会t3啊，有没有搞错<br>
+        <content type="html"><![CDATA[<p>第28场双周赛<br>
+这次双周赛我不会t3啊，有没有搞错<br>
 <strong>5420. 商品折扣后的最终价格</strong>😄<br>
 这个数据量直接暴力</p>
 <p><strong>5422. 子矩形查询</strong>😄<br>
 暴力</p>
 <p><strong>5423. 找两个和为目标值且不重叠的子数组</strong>😭<br>
 我不会，一会补题</p>
+<p>t3补题：<br>
+之前想到了前缀和加map来找到以i结尾的和为target的最短子数组，这个结果用dp1存储<br>
+然后用dp2来存储[0,i]中最短的和为target的子数组<br>
+之后遍历dp1，假如存在这样的子数组，就从前面的dp2找到最小的求和</p>
 <p><strong>5421. 安排邮筒</strong>😄<br>
 老dp了，写个题解</p>
 <h1 id="t4题解">t4题解</h1>
@@ -74,7 +79,7 @@ d[0][1]=2,dp[1][2]=2,d[2][3]=5       //两栋房子
 / / / 0
 </code></pre>
 <p>计算dp，把所有的dp都初始化为inf=100000000<br>
-dp[n]<a href="dp%5B4%5D%5B5%5D">k+1</a></p>
+dp[n][k+1]</p>
 <p>dp[i][1]的值都清楚，就是d[0][0]~d[0][n-1]，这作为dp的初始化</p>
 <pre><code>dp:(k=0不显示)
 0 2 4 11
@@ -104,8 +109,8 @@ dp[3][2]=min(dp[3][2],dp[2][1]+d[3][3]);
 最后计算dp为：略(懒得算)</p>
 <p>代码还有必要吗，我写的那么详细</p>
 <h2 id="总结">总结</h2>
-<p>计算一下时间复杂度，大概为O(n^2<em>k)<br>
-空间复杂度O(n</em>n)</p>
+<p>计算一下时间复杂度，大概为O(n^2*k)<br>
+空间复杂度O(n^2)</p>
 <p>求个赞<br>
 有问题评论区见</p>
 ]]></content>

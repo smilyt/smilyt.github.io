@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://smilyt.github.io</id>
     <title>smilyt_的博客</title>
-    <updated>2020-06-14T13:36:20.515Z</updated>
+    <updated>2020-06-17T11:07:48.632Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://smilyt.github.io"/>
     <link rel="self" href="https://smilyt.github.io/atom.xml"/>
@@ -10,6 +10,65 @@
     <logo>https://smilyt.github.io/images/avatar.png</logo>
     <icon>https://smilyt.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, smilyt_的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[记2020/06/17日cf刷题]]></title>
+        <id>https://smilyt.github.io/post/ji-20200617-ri-cf-shua-ti/</id>
+        <link href="https://smilyt.github.io/post/ji-20200617-ri-cf-shua-ti/">
+        </link>
+        <updated>2020-06-17T05:42:49.000Z</updated>
+        <content type="html"><![CDATA[<p>今天主要解决昨天两次div3剩下的题目：<br>
+Codeforces Round #615 (Div. 3)</p>
+<p><strong>C. Product of Three Numbers</strong> 1300 😄<br>
+中等数学题</p>
+<p><strong>E. Obtain a Permutation</strong> 1900 😭<br>
+本题可以分别处理每一列变为题目要求时消耗的步数。<br>
+穷举上移的步数，上移之后，假如还有数字不正确，那么就直接消耗一步更改数字即可。<br>
+每一个数字都可以算出是否合法，以及合法位置。</p>
+<p><strong>F. Three Paths on a Tree</strong> 2000 😭<br>
+图论和数，可能还有dp，我觉得我肯定不会，直接看题解</p>
+<p>哦，这题就是求a,b,c三边中不重复的边之和。而且可以证明出来a，b一定是树的直径(树的直径就是树中最长的那个路径)。<br>
+树的直径求法，先以任意一个点为起点，求最远的点，此点必为直径的端点。然后以此点求最远点，必为直径另一个端点。<br>
+然后求出两个端点到另一点的最短距离，枚举所有点，就可以找到c。<br>
+<strong>本题学到了：树的直径求法，熟悉了求一个点到别的点的距离。</strong></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[记2020/06/16日cf刷题]]></title>
+        <id>https://smilyt.github.io/post/ji-20200616-ri-cf-shua-ti/</id>
+        <link href="https://smilyt.github.io/post/ji-20200616-ri-cf-shua-ti/">
+        </link>
+        <updated>2020-06-16T09:35:26.000Z</updated>
+        <content type="html"><![CDATA[<p>继续先补上次的div3剩下的EF两题：<br>
+<strong>E. New Year Parties</strong>1800 😭<br>
+本题就是一道贪心的思维题。<br>
+对于最小的，只需要每找到一个，就把连续三个格子内的都放到中间的格子。<br>
+对于最大的，假如前一个格子为空，只需要先把人往前一个放，假如有超过两个，就往后一个格子放人。</p>
+<p><strong>F. DIY Garland</strong>2200 😭<br>
+这是一道构造题，构造题一定要发现规律，然后以规律写出代码。<br>
+这题剩余电线中重要性最高的，其实就是连接了剩余电灯泡里下标最大的那个。<br>
+发现假如当前电线是最后一根或者后面的电线与电源相连那端访问过，则下标最大的电灯泡与当前下标相连。</p>
+<p>再写这个：<br>
+Codeforces Round #615 (Div. 3)<br>
+先写几道，剩下的改天写：<br>
+<strong>A. Collecting Coins</strong> 800 😄<br>
+简单数学题</p>
+<p><strong>B. Collecting Packages</strong> 1200 😄<br>
+简单排序题</p>
+<p><strong>D. MEX maximizing</strong> 1600 😄<br>
+中等数学题</p>
+<p>有一场div3的比赛，参加一下：<br>
+Codeforces Round #650 (Div. 3)<br>
+<strong>A. Short Substrings</strong> 😄<br>
+简单字符串题</p>
+<p><strong>B. Even Array</strong> 😄<br>
+简单数学题</p>
+<p><strong>C. Social Distance</strong> 😄<br>
+简单贪心题</p>
+<p><strong>D. Task On The Board</strong> 😄<br>
+中等贪心题</p>
+<p>剩下的不会了，明天补</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[记2020/06/13刷题（力扣双周赛）]]></title>
         <id>https://smilyt.github.io/post/ji-20200613-shua-ti-li-kou-shuang-zhou-sai/</id>

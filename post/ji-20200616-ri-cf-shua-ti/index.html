@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>记2020/06/11日cf刷题 | smilyt_的博客</title>
+<title>记2020/06/16日cf刷题 | smilyt_的博客</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,12 +18,11 @@
 
 
 
-    <meta name="description" content="好久不刷题，最近课程繁重，人比较懒
-F. Two Bracket Sequences😭 2200
-还是上次剩的F题开，2200分dp，不会直接看题解学习了。。
-体会与总结：
-F题是一道字符串dp，然后根据结果还原路径的题。
-对于两个字符串..." />
+    <meta name="description" content="继续先补上次的div3剩下的EF两题：
+E. New Year Parties1800 😭
+本题就是一道贪心的思维题。
+对于最小的，只需要每找到一个，就把连续三个格子内的都放到中间的格子。
+对于最大的，假如前一个格子为空，只需要先把人往前..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -95,32 +94,48 @@ F题是一道字符串dp，然后根据结果还原路径的题。
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">记2020/06/11日cf刷题</h2>
-            <div class="post-date">2020-06-11</div>
+            <h2 class="post-title">记2020/06/16日cf刷题</h2>
+            <div class="post-date">2020-06-16</div>
             
             <div class="post-content" v-pre>
-              <p>好久不刷题，最近课程繁重，人比较懒</p>
-<p><strong>F. Two Bracket Sequences</strong>😭 2200<br>
-还是上次剩的F题开，2200分dp，不会直接看题解学习了。。</p>
-<p>体会与总结：<br>
-F题是一道字符串dp，然后根据结果还原路径的题。<br>
-对于两个字符串dp，好像所有的都是·二维以上的，因为两维i，j是用来记录两个字符串下标的。<br>
-其次，对于是否有其他的维度，就考虑别的状态，本题第三个状态是剩余的左括号数。</p>
-<p>这种题不能直接在dp里放字符串，因为会炸空间，所以只能放长度，最小长度，然后从后往前还原。</p>
-<p>分别讨论在i，j这个地方是放'('还是')'：<br>
-假如放'('，那么i处为'('，j处为'('或者两者都为'('，和在i-1，j-1处有k-1个左括号相同。<br>
-右括号也是一样的。</p>
-<p>之后再记录之前的状态，就可以倒推回去。<br>
-如果有办法不记录之前的状态就可以推回去，那也可以不记录，不过本题我未发现这样的办法。</p>
+              <p>继续先补上次的div3剩下的EF两题：<br>
+<strong>E. New Year Parties</strong>1800 😭<br>
+本题就是一道贪心的思维题。<br>
+对于最小的，只需要每找到一个，就把连续三个格子内的都放到中间的格子。<br>
+对于最大的，假如前一个格子为空，只需要先把人往前一个放，假如有超过两个，就往后一个格子放人。</p>
+<p><strong>F. DIY Garland</strong>2200 😭<br>
+这是一道构造题，构造题一定要发现规律，然后以规律写出代码。<br>
+这题剩余电线中重要性最高的，其实就是连接了剩余电灯泡里下标最大的那个。<br>
+发现假如当前电线是最后一根或者后面的电线与电源相连那端访问过，则下标最大的电灯泡与当前下标相连。</p>
+<p>再写这个：<br>
+Codeforces Round #615 (Div. 3)<br>
+先写几道，剩下的改天写：<br>
+<strong>A. Collecting Coins</strong> 800 😄<br>
+简单数学题</p>
+<p><strong>B. Collecting Packages</strong> 1200 😄<br>
+简单排序题</p>
+<p><strong>D. MEX maximizing</strong> 1600 😄<br>
+中等数学题</p>
+<p>有一场div3的比赛，参加一下：<br>
+Codeforces Round #650 (Div. 3)<br>
+<strong>A. Short Substrings</strong> 😄<br>
+简单字符串题</p>
+<p><strong>B. Even Array</strong> 😄<br>
+简单数学题</p>
+<p><strong>C. Social Distance</strong> 😄<br>
+简单贪心题</p>
+<p><strong>D. Task On The Board</strong> 😄<br>
+中等贪心题</p>
+<p>剩下的不会了，明天补</p>
 
             </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://smilyt.github.io/post/ji-20200607-shua-ti-li-kou-zhou-sai/">
+                <a href="https://smilyt.github.io/post/ji-20200613-shua-ti-li-kou-shuang-zhou-sai/">
                   <h3 class="post-title">
-                    记2020/06/07刷题（力扣周赛）
+                    记2020/06/13刷题（力扣双周赛）
                   </h3>
                 </a>
               </div>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>记2020/06/11日cf刷题 | smilyt_的博客</title>
+<title>记2020/06/17日cf刷题 | smilyt_的博客</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,12 +18,11 @@
 
 
 
-    <meta name="description" content="好久不刷题，最近课程繁重，人比较懒
-F. Two Bracket Sequences😭 2200
-还是上次剩的F题开，2200分dp，不会直接看题解学习了。。
-体会与总结：
-F题是一道字符串dp，然后根据结果还原路径的题。
-对于两个字符串..." />
+    <meta name="description" content="今天主要解决昨天两次div3剩下的题目：
+Codeforces Round #615 (Div. 3)
+C. Product of Three Numbers 1300 😄
+中等数学题
+E. Obtain a Permutation 19..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -95,32 +94,33 @@ F题是一道字符串dp，然后根据结果还原路径的题。
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">记2020/06/11日cf刷题</h2>
-            <div class="post-date">2020-06-11</div>
+            <h2 class="post-title">记2020/06/17日cf刷题</h2>
+            <div class="post-date">2020-06-17</div>
             
             <div class="post-content" v-pre>
-              <p>好久不刷题，最近课程繁重，人比较懒</p>
-<p><strong>F. Two Bracket Sequences</strong>😭 2200<br>
-还是上次剩的F题开，2200分dp，不会直接看题解学习了。。</p>
-<p>体会与总结：<br>
-F题是一道字符串dp，然后根据结果还原路径的题。<br>
-对于两个字符串dp，好像所有的都是·二维以上的，因为两维i，j是用来记录两个字符串下标的。<br>
-其次，对于是否有其他的维度，就考虑别的状态，本题第三个状态是剩余的左括号数。</p>
-<p>这种题不能直接在dp里放字符串，因为会炸空间，所以只能放长度，最小长度，然后从后往前还原。</p>
-<p>分别讨论在i，j这个地方是放'('还是')'：<br>
-假如放'('，那么i处为'('，j处为'('或者两者都为'('，和在i-1，j-1处有k-1个左括号相同。<br>
-右括号也是一样的。</p>
-<p>之后再记录之前的状态，就可以倒推回去。<br>
-如果有办法不记录之前的状态就可以推回去，那也可以不记录，不过本题我未发现这样的办法。</p>
+              <p>今天主要解决昨天两次div3剩下的题目：<br>
+Codeforces Round #615 (Div. 3)</p>
+<p><strong>C. Product of Three Numbers</strong> 1300 😄<br>
+中等数学题</p>
+<p><strong>E. Obtain a Permutation</strong> 1900 😭<br>
+本题可以分别处理每一列变为题目要求时消耗的步数。<br>
+穷举上移的步数，上移之后，假如还有数字不正确，那么就直接消耗一步更改数字即可。<br>
+每一个数字都可以算出是否合法，以及合法位置。</p>
+<p><strong>F. Three Paths on a Tree</strong> 2000 😭<br>
+图论和数，可能还有dp，我觉得我肯定不会，直接看题解</p>
+<p>哦，这题就是求a,b,c三边中不重复的边之和。而且可以证明出来a，b一定是树的直径(树的直径就是树中最长的那个路径)。<br>
+树的直径求法，先以任意一个点为起点，求最远的点，此点必为直径的端点。然后以此点求最远点，必为直径另一个端点。<br>
+然后求出两个端点到另一点的最短距离，枚举所有点，就可以找到c。<br>
+<strong>本题学到了：树的直径求法，熟悉了求一个点到别的点的距离。</strong></p>
 
             </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://smilyt.github.io/post/ji-20200607-shua-ti-li-kou-zhou-sai/">
+                <a href="https://smilyt.github.io/post/ji-20200616-ri-cf-shua-ti/">
                   <h3 class="post-title">
-                    记2020/06/07刷题（力扣周赛）
+                    记2020/06/16日cf刷题
                   </h3>
                 </a>
               </div>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://smilyt.github.io</id>
     <title>smilyt_的博客</title>
-    <updated>2020-06-17T11:07:48.632Z</updated>
+    <updated>2020-06-18T09:07:46.451Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://smilyt.github.io"/>
     <link rel="self" href="https://smilyt.github.io/atom.xml"/>
@@ -30,6 +30,23 @@ Codeforces Round #615 (Div. 3)</p>
 树的直径求法，先以任意一个点为起点，求最远的点，此点必为直径的端点。然后以此点求最远点，必为直径另一个端点。<br>
 然后求出两个端点到另一点的最短距离，枚举所有点，就可以找到c。<br>
 <strong>本题学到了：树的直径求法，熟悉了求一个点到别的点的距离。</strong></p>
+<p>补完上一个，补昨晚打的div3：<br>
+Codeforces Round #650 (Div. 3)</p>
+<p><strong>E. Necklace Assembly</strong> 😭<br>
+二分法。<br>
+对于一个k来说，它的因子也是可以的，所以先求出k的所有因子。<br>
+然后对每一个因子x，可以确定节数范围在1~n/x，可以用二分写。<br>
+<strong>本题学到了：多考虑一下二分吧！</strong></p>
+<p><strong>F1. Flying Sort (Easy Version)</strong>  😭<br>
+<strong>F2. Flying Sort (Hard Version)</strong>  😭<br>
+本题是使用dp的解法。<br>
+数组中存在不用移动的数字，这些数字必定是在排序后的数组中保持原来顺序的相邻数字，假如不相邻，是需要移动的。<br>
+而对于每一个移动的数字，都是一步到位。<br>
+即：本题是求符合排序后的数组子数组的最大子序列。<br>
+因此使用dp的解法。<br>
+因为只需要数据之间的大小关系，所以实际大小无所谓，因此可以把数据离散化。</p>
+<p>只要是最长子序列的题，dp都是从目的序列的前一个到后一个，一般会用map辅助。<br>
+假如一个dp数组不够，就考虑增设dp数组。</p>
 ]]></content>
     </entry>
     <entry>

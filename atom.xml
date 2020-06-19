@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://smilyt.github.io</id>
     <title>smilyt_的博客</title>
-    <updated>2020-06-18T09:07:46.451Z</updated>
+    <updated>2020-06-19T01:35:56.920Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://smilyt.github.io"/>
     <link rel="self" href="https://smilyt.github.io/atom.xml"/>
@@ -10,6 +10,30 @@
     <logo>https://smilyt.github.io/images/avatar.png</logo>
     <icon>https://smilyt.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, smilyt_的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[记2020/06/18日cf刷题]]></title>
+        <id>https://smilyt.github.io/post/ji-20200618-ri-cf-shua-ti/</id>
+        <link href="https://smilyt.github.io/post/ji-20200618-ri-cf-shua-ti/">
+        </link>
+        <updated>2020-06-18T09:08:14.000Z</updated>
+        <content type="html"><![CDATA[<p>今天刷一下div3：<br>
+Codeforces Round #617 (Div. 3)</p>
+<p><strong>A. Array with Odd Sum</strong> 800 😄<br>
+简单数学题</p>
+<p><strong>B. Food Buying</strong> 900 😄<br>
+简单数学题</p>
+<p><strong>C. Yet Another Walking Robot</strong> 1500 😄<br>
+简单字符串题</p>
+<p><strong>D. Fight with Monsters</strong> 1500 😄<br>
+中等贪心题</p>
+<p><strong>E1. String Coloring (easy version)</strong> 1800 😄<br>
+<strong>E2. String Coloring (hard version)</strong> 2000 😄<br>
+div e题，是一个找最长子序列的吧，a了，开心</p>
+<p><strong>F. Berland Beauty</strong> 2100  😭<br>
+又是无向树和图论，不会写，直接看题解吧<br>
+算了，明天补吧</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[记2020/06/17日cf刷题]]></title>
         <id>https://smilyt.github.io/post/ji-20200617-ri-cf-shua-ti/</id>
